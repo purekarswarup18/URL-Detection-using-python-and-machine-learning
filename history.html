@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediction History</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="main-content">
+    <h1>Your URL Prediction History</h1>
+    <p>✅ Safe: {{ safe_count }} | ❌ Malicious: {{ malicious_count }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Result</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in predictions %}
+        <tr>
+          <td>{{ item.url }}</td>
+          <td class="{{ 'safe' if item.result == 'benign' else 'malicious' }}">{{ item.result }}</td>
+          <td>{{ item.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p><a href="/index">Back to Home</a></p>
+  </div>
+</body>
+</html>

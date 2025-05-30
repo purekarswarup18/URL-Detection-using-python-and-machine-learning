@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome - Malicious URL Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+  <div id="tsparticles"></div>
+  <div class="main-content">
+    <h1>Welcome to Malicious URL Detection</h1>
+    <p class="subtext">A smart tool to detect and avoid phishing or malicious links using machine learning.</p>
+    <div class="buttons">
+      <a href="/login" class="btn">Login</a>
+      <a href="/register" class="btn outline">Register</a>
+    </div>
+    <div class="how-it-works">
+      <h2>How it works</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>Feature Extraction</h3>
+          <p>We analyze various characteristics from a URL such as length, structure, and symbols.</p>
+        </div>
+        <div class="feature-card">
+          <h3>ML Model</h3>
+          <p>We use LightGBM to accurately classify URLs into safe or malicious categories.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Live Results</h3>
+          <p>Check your URL and get a result in real-time, stored securely in our database.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

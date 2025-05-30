@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Malicious URL Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="main-content">
+    <h1>Check if a URL is Safe</h1>
+    <form method="POST">
+      <input type="text" name="url" placeholder="Enter a URL..." required>
+      <button type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+      <div class="result">
+        This URL is classified as:
+        <span class="{{ 'safe' if prediction == 'benign' else 'malicious' }}">{{ prediction.upper() }}</span>
+      </div>
+    {% endif %}
+    <p><a href="/history">View History</a> | <a href="/logout">Logout</a></p>
+  </div>
+</body>
+</html>
